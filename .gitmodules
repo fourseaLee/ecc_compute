@@ -1,0 +1,3 @@
+[submodule "libraries/libtommath"]
+	path = libraries/libtommath
+	url = https://github.com/libtom/libtommath.git
