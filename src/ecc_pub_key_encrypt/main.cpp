@@ -1,11 +1,3 @@
-#include <QCoreApplication>
-
-//int main(int argc, char *argv[])
-//{
-//    QCoreApplication a(argc, argv);
-
-//    return a.exec();
-//}
 /*　1、用户A选定一条适合加密的椭圆曲线Ep(a,b)(如:y2=x3+ax+b)，并取椭圆曲线上一点，作为基点G。
 　　2、用户A选择一个私有密钥k，并生成公开密钥K=kG。
 　　3、用户A将Ep(a,b)和点K，G传给用户B。
@@ -183,10 +175,12 @@ int  main(){
 }
 
 
-int GetPrime(mp_int *m,int lon){
+int GetPrime(mp_int *m,int lon)
+{
 
-   mp_prime_random_ex(m, 10, lon,
-        (rand()&1)?LTM_PRIME_2MSB_OFF:LTM_PRIME_2MSB_ON, myrng, NULL);
+  int flag = (rand()&1)?0x0004:LTM_PRIME_2MSB_ON;	
+
+   mp_prime_random_ex(m, 10, lon,flag, myrng, NULL);
   // mp_prime_random_ex(m, 10, lon,LTM_PRIME_2MSB_ON, myrng, NULL);
    return MP_OKAY;
 }
